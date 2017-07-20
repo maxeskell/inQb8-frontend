@@ -1,5 +1,5 @@
 angular
-  .module('finalProject')
+  .module('incubateApp')
   .controller('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = ['$http', 'API_URL'];
