@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="usersEdit.update()">
+
+      Email: {{ usersEdit.user.email }}
+
+      <label for="username">Username</label>
+      <input type="username" id="username" name="username" ng-model="usersEdit.user.username">
+
+      <label for="first_name">First name</label>
+      <input type="text" id="first_name" name="first_name" ng-model="usersEdit.user.first_name">
+
+      <label for="last_name">Last name</label>
+      <input type="text" id="last_name" name="last_name" ng-model="usersEdit.user.last_name">
+
+      <label for="base64">Image</label>
+      <input type="file" base64 name="base64" id="base64" ng-model="usersEdit.user.base64">
+
+      <button>Update</button>
+    </form>
+  </div>
+</div>

@@ -11,7 +11,9 @@
 
       <button ui-sref="ideasEdit({id: ideasShow.idea.id})" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Edit</button>
       <button ng-click="ideasShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Delete</button>
+
     </div>
+
   </div>
   <div class="col-md-6">
     <div class="attendees">
@@ -19,8 +21,8 @@
       <ul>
         <li ng-repeat="lover in ideasShow.idea">
           {{ lover.username }}
-            <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && !ideasShow.isAttending()">Love this idea</button>
-            <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && ideasShow.isAttending()">Un-love this idea</button>
+            <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && !ideasShow.love()">Love this idea</button>
+            <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && ideasShow.love()">Un-love this idea</button>
         </li>
       </ul>
     </div>
@@ -33,8 +35,8 @@
       <h2>Team members</h2>
       <ul>
         <li ng-repeat="member in ideasShow.idea">{{ member.username }}
-          <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && !ideasShow.isAttending()">Join this team</button>
-          <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && ideasShow.isAttending()">Un-join this team</button>
+          <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && !ideasShow.join()">Join this team</button>
+          <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && ideasShow.join()">Un-join this team</button>
         </li>
       </ul>
     </div>
@@ -58,4 +60,3 @@
     </div>
   </div>
 </div>
-  {{ideasShow.idea}}

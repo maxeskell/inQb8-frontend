@@ -24,7 +24,7 @@
       <input type="text" id="campaign_duration" name="campaign_duration" ng-model="ideasNew.idea.campaign_duration">
 
       <lable ng-repeat="tag in ideasNew">
-        <input type="checkbox" name="tags" checklist-model="ideasNew.idea.tags_ids" checklist-value="tag.id"> {{ tag.name }}
+        <input type="checkbox" name="tags" checklist-model="ideasNew.idea.tag.name" checklist-value="tag.id"> <p> {{ ideasNew }} </p>
       </lable>
 
       <button>Create</button>

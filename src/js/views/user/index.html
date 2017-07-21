@@ -1,0 +1,11 @@
+<ul class="row">
+  <li ng-repeat="user in usersIndex.all" class="col-md-6">
+    <div class="user">
+      <h2>{{ user.username }}</h2>
+      <li ng-repeat="idea in usersIndex">
+        <h3>{{ user.idea }}</h3>
+      </li>
+      <button ui-sref="usersShow({id: user.id})" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.idea.user.id">Edit my profile</button>
+    </div>
+  </li>
+</ul>
