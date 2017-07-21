@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="idea">
+      <h2>{{ ideasShow.idea.title }}</h2>
+      <h3>{{ ideasShow.idea.pitch }}</h3>
+      <h3><strong>Campaign duration:</strong> {{ ideasShow.idea.campaign_duration }} days</h3>
+      <h3><strong>Description: </strong>{{ ideasShow.idea.description }}</h3>
+      <p><strong>Created by: </strong>{{ ideasShow.idea.user.username }}</p>
+      <h3><strong>Who we need: </strong>{{ ideasShow.idea.who_we_need }}</h3>
+      <h3><strong>What's in it for you: </strong>{{ ideasShow.idea.benefits_for_you }}</h3>
+
+      <button ui-sref="ideasEdit({id: ideasShow.idea.id})" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Edit</button>
+      <button ng-click="ideasShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Delete</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="attendees">
+      <h5>People who love this idea</h5>
+      <ul>
+        <li ng-repeat="lover in ideasShow.idea">
+          {{ lover.username }}
+            <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && !ideasShow.isAttending()">Love this idea</button>
+            <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && ideasShow.isAttending()">Un-love this idea</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="comments">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Team members</h2>
+      <ul>
+        <li ng-repeat="member in ideasShow.idea">{{ member.username }}
+          <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && !ideasShow.isAttending()">Join this team</button>
+          <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && ideasShow.isAttending()">Un-join this team</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="comments">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Comments</h2>
+      <ul>
+        <li ng-repeat="comment in ideasShow.idea.comments">{{ comment.body }} - <strong>{{ comment.user.username }}</strong><button ng-click="ideasShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUser.id === comment.user.id">Delete</button></li>
+      </ul>
+    </div>
+    <div class="col-md-6" ng-if="main.isAuthenticated()">
+      <h2>Add Comment</h2>
+      <form ng-submit="ideasShow.addComment()">
+        <textarea type="text" name="body" ng-model="ideasShow.comment.body"></textarea>
+        <button>Create</button>
+      </form>
+    </div>
+  </div>
+</div>
+  {{ideasShow.idea}}

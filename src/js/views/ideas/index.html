@@ -1,0 +1,12 @@
+<ul class="row">
+  <li ng-repeat="idea in ideasIndex.all" class="col-md-6">
+    <div class="idea">
+      <h2>{{ idea.title }}</h2>
+      <h3>{{ idea.pitch }}</h3>
+      <p>Created by: <strong>{{ idea.user.username }}</strong></p>
+      <p>Duration: {{idea.campaign_duration}}</p>
+      <p>Target: {{idea.target}}</p>
+      <button ui-sref="ideasShow({id: idea.id})">I want to learn more</button>
+    </div>
+  </li>
+</ul>
