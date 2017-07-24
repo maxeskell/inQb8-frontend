@@ -10,6 +10,7 @@ IdeasIndexCtrl.$inject = ['Idea'];
 function IdeasIndexCtrl(Idea) {
   const vm = this;
 
+  vm.dateNow = new Date();
   vm.all = Idea.query();
 }
 
@@ -57,13 +58,13 @@ function IdeasShowCtrl(Idea, User, Comment, $stateParams, $state, $auth) {
   }
 
   function toggleLove() {
-    const index = vm.idea.ideas_loved.id.indexOf(vm.currentUser.id);
+    const index = vm.idea.love_ids.indexOf(vm.currentUser.id);
     if (index > -1) {
-      vm.idea.ideas_loved.id.splice(index, 1);
-      vm.idea.attendees.splice(index, 1);
+      vm.idea.love_ids.splice(index, 1);
+      vm.idea.loves.splice(index, 1);
     } else {
-      vm.idea.ideas_loved.id.push(vm.currentUser.id);
-      vm.idea.attendees.push(vm.currentUser);
+      vm.idea.love_ids.push(vm.currentUser.id);
+      vm.idea.loves.push(vm.currentUser);
     }
     ideasUpdate();
   }
@@ -76,13 +77,13 @@ function IdeasShowCtrl(Idea, User, Comment, $stateParams, $state, $auth) {
   vm.isLove = isLove;
 
   function toggleJoin() {
-    const index = vm.idea.ideas_joined.id.indexOf(vm.currentUser.id);
+    const index = vm.idea.joiner_ids.indexOf(vm.currentUser.id);
     if (index > -1) {
-      vm.idea.ideas_joined.id.splice(index, 1);
-      vm.idea.attendees.splice(index, 1);
+      vm.idea.joiner_ids.splice(index, 1);
+      vm.idea.joiners.splice(index, 1);
     } else {
-      vm.idea.ideas_joined.id.push(vm.currentUser.id);
-      vm.idea.attendees.push(vm.currentUser);
+      vm.idea.joiner_ids.push(vm.currentUser.id);
+      vm.idea.joiners.push(vm.currentUser);
     }
     ideasUpdate();
   }

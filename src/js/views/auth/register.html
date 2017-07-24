@@ -13,7 +13,7 @@
 
       <div>
         <label for="base64">Image</label>
-        <input type="file" base64 name="base64" id="base64" ng-model="register.user.base64">
+        <input type="file" base64 name="base64" id="base64" ng-model="register.user.base64" accept="image/x-png,image/gif,image/jpeg">
       </div>
 
       <div>
@@ -30,11 +30,15 @@
 
       <hr>
 
-      <button style="background-color:#3b5998; border: none;" ng-click="login.authenticate('facebook')">Register with Facebook</button>
+      <button style="background-color:#3b5998; border: none;" ng-click="login.authenticate('facebook')"><span class="icon">
+        <i class="fa fa-facebook"></i>
+      </span>Register with Facebook</button>
 
       <hr>
-      
-      <button style="background-color:black; border: none;" ng-click="login.authenticate('github')">Register with Github</button>
+
+      <button style="background-color:black; border: none;" ng-click="login.authenticate('github')"><span class="icon">
+        <i class="fa fa-github"></i>
+      </span>Register with Github</button>
 
 
     </form>

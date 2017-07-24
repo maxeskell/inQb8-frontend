@@ -1,3 +1,4 @@
+
 angular
   .module('incubate')
   .config(Router);
@@ -39,14 +40,19 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('usersIndex', {
       url: '/users',
-      templateUrl: 'js/views/user/users.html',
-      controller: 'ProfilesIndexCtrl as usersIndex'
+      templateUrl: 'js/views/users/index.html',
+      controller: 'UsersIndexCtrl as usersIndex'
     })
     .state('usersShow', {
       url: '/users/:id',
-      templateUrl: 'js/views/user/users.html',
-      controller: 'ProfilesShowCtrl as usersShow'
+      templateUrl: 'js/views/users/show.html',
+      controller: 'UsersShowCtrl as usersShow'
+    })
+    .state('usersEdit', {
+      url: '/users/:id/edit',
+      templateUrl: 'js/views/users/edit.html',
+      controller: 'UsersEditCtrl as usersEdit'
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/ideas');
 }

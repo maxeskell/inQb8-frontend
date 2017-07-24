@@ -31,7 +31,7 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
 
   function logout() {
     $auth.logout();
-    $state.go('home');
+    $state.go('ideasIndex');
   }
 
   vm.logout = logout;
