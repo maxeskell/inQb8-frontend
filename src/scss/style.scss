@@ -379,6 +379,7 @@ text-decoration:none;
     font-size: 18px;
     box-shadow: none;
     border-style:solid;
+    margin-left: 5px;
   }
 }
 
@@ -406,7 +407,6 @@ button {
     background-color: lighten($brand-secondary, 5%);
   }
 }
-
 
 .upload.input {
   border: none;
