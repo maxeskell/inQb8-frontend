@@ -15,12 +15,12 @@
       <input type="text" id="description" name="description" ng-model="ideasNew.idea.description" required maxlength="500">
 
       <label for="base64">Image</label>
-      <input type="file" base64 name="base64" id="base64" ng-model="ideasNew.idea.base64" accept="image/x-png,image/gif,image/jpeg" required>
+      <input type="file" class="upload" base64 name="base64" id="base64" ng-model="ideasNew.idea.base64" accept="image/x-png,image/gif,image/jpeg" required>
 
       <label for="who_we_need">Who do you need?</label>
       <input type="text" id="who_we_need" name="who_we_need" ng-model="ideasNew.idea.who_we_need" maxlength="140">
 
-      <label for="benifits_for_you">What is in it for people who join your team?</label>
+      <label for="benifits_for_you">What is in it for your team?</label>
       <input type="text" id="benifits_for_you" name="benifits_for_you" ng-model="ideasNew.idea.benifits_for_you" maxlength="140">
 
       <label for="campaign_duration">Campaign duration</label>

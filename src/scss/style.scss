@@ -328,6 +328,12 @@ text-decoration:none;
     }
 }
 
+@media only screen and (max-width:1200px) {
+    .tagLable {
+    font-size: 12px;
+    }
+}
+
 @media only screen and (max-width:480px) {
     h1 {
     font-size:1.4rem;
@@ -399,4 +405,9 @@ button {
     border-color: lighten($brand-secondary, 5%);
     background-color: lighten($brand-secondary, 5%);
   }
+}
+
+
+.upload.input {
+  border: none;
 }
