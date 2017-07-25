@@ -35,6 +35,12 @@ a, a:hover, a:focus {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+  -moz-text-decoration-color: red; /* Code for Firefox */
+  text-decoration-color: red;
+}
+
 strong {
   font-weight: 500;
 }
@@ -213,3 +219,129 @@ form {
 }
 
 li { cursor: pointer; cursor: hand; }
+
+/* Global Styles */
+
+
+.container {
+margin:0 auto;
+padding:0 0 5%;
+width:85%;
+}
+
+/* Fund Styles */
+
+.fund {
+background-color:rgba(0,0,0,.06);
+border-radius:4px;
+margin:0 0 4%;
+padding:2.5% 3.5%;
+}
+
+.fund:last-child {
+margin-bottom:4%;
+}
+
+.progress {
+border-radius:4px;
+border: $brand-secondary 1px solid;
+box-shadow:0 1px 1px rgba(0,0,0,.15) inset;
+height:27px;
+margin-bottom:2%;
+overflow:hidden;
+}
+
+.bar {
+background-color:$brand-secondary;
+box-shadow:0 -1px 1px rgba(0,0,0,.15) inset;
+color:#fff;
+float:left;
+height:100%;
+position:relative;
+text-align:left;
+}
+
+.bar > .percent {
+font-size:.9rem;
+left:8px;
+position:absolute;
+top:3px;
+}
+
+.goal {
+color:#dfe2ed;
+}
+
+.donate {
+color:black;
+float:right;
+font-weight:400;
+text-decoration:none;
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width:100px) {
+    h1 {
+    font-size:2rem;
+    margin:8% 0;
+    }
+
+    .fund {
+    margin:0 0 10%;
+    padding:5%;
+    }
+
+    .ideaMain {
+      width:100%;
+      max-height: 300px;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    h1 {
+    font-size:2rem;
+    margin:8% 0;
+    }
+
+    .fund {
+    margin:0 0 10%;
+    padding:5%;
+    }
+
+    .ideaMain {
+      width:100%;
+      max-height: 200px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    h1 {
+    font-size:1.4rem;
+    }
+
+    .donate {
+    display:block;
+    float:none;
+    margin-top:3%;
+    }
+
+    .ideaMain {
+      width:100%;
+      max-height: 100px;
+    }
+}
+
+.userThumbnail {
+  max-width: 50px;
+}
+
+.ideaMain {
+  width:100%;
+  max-height: 400px;
+}
+
+.tags {
+  float: left;
+}

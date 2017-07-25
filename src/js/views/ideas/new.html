@@ -1,34 +1,39 @@
 <div class="row">
   <div class="col-md-6">
-    <form ng-submit="ideasNew.create()">
+    <form ng-submit="ideasNew.create()" novalidate>
 
       <label for="title">Title</label>
-      <input type="text" id="title" name="title" ng-model="ideasNew.idea.title" required>
+      <input type="text" id="title" name="title" ng-model="ideasNew.idea.title" required maxlength="30">
 
       <label for="pitch">Pitch</label>
-      <input type="pitch" id="pitch" name="pitch" ng-model="ideasNew.idea.pitch" required>
+      <input type="text" id="pitch" name="pitch" ng-model="ideasNew.idea.pitch" required maxlength="140">
+
+      <label for="target">Target</label>
+      <input type="number" id="target" name="target" ng-model="ideasNew.idea.target" required>
 
       <label for="description">Description</label>
-      <input type="text" id="description" name="description" ng-model="ideasNew.idea.description" required>
+      <input type="text" id="description" name="description" ng-model="ideasNew.idea.description" required maxlength="500">
 
       <label for="base64">Image</label>
       <input type="file" base64 name="base64" id="base64" ng-model="ideasNew.idea.base64" accept="image/x-png,image/gif,image/jpeg" required>
 
       <label for="who_we_need">Who do you need?</label>
-      <input type="text" id="who_we_need" name="who_we_need" ng-model="ideasNew.idea.who_we_need">
+      <input type="text" id="who_we_need" name="who_we_need" ng-model="ideasNew.idea.who_we_need" maxlength="140">
 
       <label for="benifits_for_you">What is in it for people who join your team?</label>
-      <input type="text" id="benifits_for_you" name="benifits_for_you" ng-model="ideasNew.idea.benifits_for_you">
+      <input type="text" id="benifits_for_you" name="benifits_for_you" ng-model="ideasNew.idea.benifits_for_you" maxlength="140">
 
       <label for="campaign_duration">Campaign duration</label>
-      <input type="text" id="campaign_duration" name="campaign_duration" ng-model="ideasNew.idea.campaign_duration" required>
+      <input type="number" id="campaign_duration" name="campaign_duration" ng-model="ideasNew.idea.campaign_duration" required>
 
       <lable ng-repeat="tag in ideasNew.tags">
-        <input type="checkbox" name="tags" checklist-model="ideasNew.idea.tag_ids" checklist-value="tag.id">
-        <p> {{ tag }} </p>
+        <input class="tags" type="checkbox" name="tags" checklist-model="ideasNew.idea.tag_ids" checklist-value="tag.id">
+        <p> {{ tag.name }} </p>
       </lable>
-      
+
       <button>Create</button>
+
+      {{ ideasNew.idea }}
 
     </form>
   </div>

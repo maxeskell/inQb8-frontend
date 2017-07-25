@@ -5,22 +5,29 @@ angular
   .controller('IdeasShowCtrl', IdeasShowCtrl)
   .controller('IdeasEditCtrl', IdeasEditCtrl);
 
-IdeasIndexCtrl.$inject = ['Idea'];
+IdeasIndexCtrl.$inject = ['Idea', 'filterFilter', '$scope'];
 
-function IdeasIndexCtrl(Idea) {
+function IdeasIndexCtrl(Idea, filterFilter, $scope) {
   const vm = this;
-
-  vm.dateNow = new Date();
   vm.all = Idea.query();
+
+  function filterIdeas() {
+    vm.filtered = filterFilter(vm.all, vm.q);
+  }
+
+  $scope.$watchGroup([
+    () => vm.q
+  ], filterIdeas);
 }
 
-IdeasNewCtrl.$inject = ['Idea', 'User', '$state'];
+IdeasNewCtrl.$inject = ['Idea', 'User', '$state', 'Tag'];
 
-function IdeasNewCtrl(Idea, User, $state) {
+function IdeasNewCtrl(Idea, User, $state, Tag) {
   const vm = this;
   // to prepopulate idea fields, pass them in here
   vm.idea = {};
   vm.users = User.query();
+  vm.tags = Tag.query();
 
   function ideasCreate() {
     Idea

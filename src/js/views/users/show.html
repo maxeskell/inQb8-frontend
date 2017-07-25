@@ -1,34 +1,36 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="user">
+    <div class="event">
       <h2><strong> Username: </strong> {{ usersShow.user.username }}</h2>
-      <img ng-src="{{ usersShow.user.image_src }}" alt="{{ usersShow.user.username }}">
+      <img class="userThumbnail" ng-src="{{ usersShow.user.image_src }}" alt="{{ usersShow.user.username }}">
       <h3><strong> Email: </strong>{{ usersShow.user.email }}</h3>
       <h3><strong> First name: </strong>{{ usersShow.user.first_name }}</h3>
       <h3><strong> Last name: </strong>{{ usersShow.user.last_name }}</h3>
+      <button ui-sref="usersEdit({id: usersShow.user.id})" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Edit</button>
+      <button ng-click="usersShow.delete(user)" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Delete</button>
+    </div>
+  </div>
 
+  <div class="col-md-6">
+    <div class="attendees">
       <h3><strong> Ideas created: </strong></h3>
       <ul>
         <li ng-repeat="idea in usersShow.user.ideas">
-          <h3>+ {{ idea.title }}</h3>
+          <h3><a ui-sref="ideasShow({id: idea.id})">{{ idea.title }}</a></h3>
         </li>
       </ul>
       <ul>
         <h3><strong> Ideas loved: </strong></h3>
         <li ng-repeat="idea in usersShow.user.ideas_loved">
-          <h3>+ {{ idea.title }}</h3>
+          <h3><a ui-sref="ideasShow({id: idea.id})">{{ idea.title }}</a></h3>
         </li>
       </ul>
       <ul>
         <h3><strong> Ideas joined: </strong></h3>
         <li ng-repeat="idea in usersShow.user.ideas_joined">
-          <h3>+ {{ idea.title }}</h3>
+          <h3><a ui-sref="ideasShow({id: idea.id})">{{ idea.title }}</a></h3>
         </li>
       </ul>
-      <button ui-sref="usersEdit({id: usersShow.user.id})">Edit</button>
-      <button ng-click="usersShow.delete(user)">Delete</button>
     </div>
   </div>
 </div>
-
-{{ currentUser }}

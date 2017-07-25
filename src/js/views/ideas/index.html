@@ -1,21 +1,28 @@
 <ul class="row">
-  <li ng-repeat="idea in ideasIndex.all" class="col-md-6">
-    <div class="idea">
-      <a ui-sref="ideasShow({id: idea.id})"><h2>{{ idea.title }}</h2></a>
+  <li ng-repeat="idea in ideasIndex.filtered" class="col-md-6">
+    <div class="attendees">
+
+      <a ui-sref="ideasShow({id: idea.id})"><h2>{{ idea.title }}<span class="donate"><strong> &hearts; {{ idea.love_ids.length }} </strong></span></h2></a>
       <a ui-sref="ideasShow({id: idea.id})"><h3>{{ idea.pitch }}</h3></a>
-      <a ui-sref="ideasShow({id: idea.id})"><img ng-src="{{ idea.image_src }}" alt="{{ idea.title }}" height="200px" width="300px"></a>
+
+        <a ui-sref="ideasShow({id: idea.id})"><img class="ideaMain" ng-src="{{ idea.image_src }}" alt="{{ idea.title }}"></a>
 
       <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:70%">
-          <span class="sr-only">70% Complete</span>
+        <div class="bar" ng-style="{width:{{((idea.joiner_ids.length / idea.target) * 100)}} + '%'}">
+          <!-- show calculated percentage if total amount joiner_ids.length is <= 100% -->
+          <span class="percent" ng-show="((idea.joiner_ids.length / idea.target) * 100) <= 100">{{((idea.joiner_ids.length / idea.target) * 100) | number:0}}%</span>
+          <!-- show maximum percentage if total amount joiner_ids.length is > 100% -->
+          <span class="percent" ng-show="((idea.joiner_ids.length / idea.target) * 100) > 100">100%</span>
         </div>
       </div>
-      <p><strong>{{idea.target}}</strong> people needed</p>
-      <br>
-      <p>Created by: <strong>{{ idea.user.username }}</strong></p>
-      <p>Ends on: {{idea.days_remaining | date:"dd MMM yyyy 'at' h:mma" }}</p>
+      <span class="target">People joined: <strong> {{idea.joiner_ids.length }} </strong> </span>
+      <a class="donate" ng-href="ideasShow({id: idea.id})"> Total needed: <strong>{{ idea.target }}</strong></a>
 
-    </div>
+    <hr>
+    <p><strong>{{idea.days_left }}</strong> days left</p>
+    <p><a ui-sref="usersShow({id: idea.user.id})">Created by: <strong>{{ idea.user.username }}</strong></a></p>
+    <p>Ends on: <strong>{{idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
+
+  </div>
   </li>
 </ul>
