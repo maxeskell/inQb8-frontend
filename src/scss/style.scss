@@ -299,7 +299,7 @@ text-decoration:none;
     }
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:640px) {
     h1 {
     font-size:2rem;
     margin:8% 0;
@@ -316,6 +316,15 @@ text-decoration:none;
     }
     .tagLable {
       float: none;
+    }
+    nav {
+    font-size: 10px;
+    a {
+    font-size: 10px;
+    }
+    }
+    .tagLable {
+    font-size: 10px;
     }
 }
 
@@ -354,6 +363,17 @@ text-decoration:none;
 .searchBar {
   margin: 0 auto;
   padding: 15px;
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  input {
+    border-color: $brand-secondary;
+    color: $brand-secondary;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: none;
+    border-style:solid;
+  }
 }
 
 button {

@@ -1,19 +1,20 @@
 <div class="row">
-  <div class="col-12 searchBar">
-    <lable> Search ideas</lable>
-    <input type="text" class="search" ng-model="ideasIndex.q" placeholder="Search...">
+  <div class="col-12 col-md-auto searchBar">
+      <lable> Search ideas</lable>
+      <input type="text" class="search" ng-model="ideasIndex.q" placeholder="Search...">
   </div>
 </div>
 
 
 <ul class="row">
   <li ng-repeat="idea in ideasIndex.filtered" class="col-md-6">
+
     <div class="attendees">
 
       <a ui-sref="ideasShow({id: idea.id})"><h2>{{ idea.title }}<span class="donate"><strong> &hearts; {{ idea.love_ids.length }} </strong></span></h2></a>
       <a ui-sref="ideasShow({id: idea.id})"><h3>{{ idea.pitch }}</h3></a>
 
-        <a ui-sref="ideasShow({id: idea.id})"><img class="ideaMain" ng-src="{{ idea.image_src }}" alt="{{ idea.title }}"></a>
+      <a ui-sref="ideasShow({id: idea.id})"><img class="ideaMain" ng-src="{{ idea.image_src }}" alt="{{ idea.title }}"></a>
 
       <div class="progress">
         <div class="bar" ng-style="{width:{{((idea.joiner_ids.length / idea.target) * 100)}} + '%'}">
@@ -26,11 +27,11 @@
       <span class="target">People joined: <strong> {{idea.joiner_ids.length }} </strong> </span>
       <a class="donate" ng-href="ideasShow({id: idea.id})"> Total needed: <strong>{{ idea.target }}</strong></a>
 
-    <hr>
-    <p><strong>{{idea.days_left }}</strong> days left</p>
-    <p><a ui-sref="usersShow({id: idea.user.id})">Created by: <strong>{{ idea.user.username }}</strong></a></p>
-    <p>Ends on: <strong>{{idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
+      <hr>
+      <p><strong>{{idea.days_left }}</strong> days left</p>
+      <p><a ui-sref="usersShow({id: idea.user.id})">Created by: <strong>{{ idea.user.username }}</strong></a></p>
+      <p>Ends on: <strong>{{idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
 
-  </div>
+    </div>
   </li>
 </ul>
