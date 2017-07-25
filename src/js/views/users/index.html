@@ -2,13 +2,6 @@
   <li ng-repeat="user in usersIndex.all" class="col-md-6">
     <div class="user">
       <h2>{{ user.username }}</h2>
-
-      <li ng-repeat="idea in user.idea">
-        <h3>{{ idea.title }}</h3>
-      </li>
-
-      <button ui-sref="usersShow({id: main.currentUser.id})">Go to my profile</button>
-
     </div>
   </li>
 </ul>

@@ -34,13 +34,14 @@
     <span class="target">People joined: <strong> {{ideasShow.idea.joiner_ids.length }} </strong> </span>
     <p class="donate"> Total needed: {{ ideasShow.idea.target }}</p>
 
+    <hr>
+
     <p>Loves &hearts; : <strong> {{ ideasShow.idea.love_ids.length }} </strong></p>
     <p><strong>{{ideasShow.idea.days_left }}</strong> days left</p>
     <p>End date: <strong> {{ideasShow.idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
     <p><a ui-sref="usersShow({id: ideasShow.idea.user.id})">Created by: <strong>{{ ideasShow.idea.user.username }}</strong></a></p>
     <p>Who we need: <strong>{{ ideasShow.idea.who_we_need }}</strong></p>
     <p>What's in it for you: <strong>{{ ideasShow.idea.benefits_for_you }}</strong></p>
-    <p>Duration: <strong>{{ideasShow.idea.campaign_duration}}</strong></p>
     <p>Description: <strong>{{ ideasShow.idea.description }}</strong></p>
     <p>Tags: </p>
     <ul>
@@ -64,8 +65,8 @@
     </div>
     <div class="col-md-6" ng-if="main.isAuthenticated()">
       <h2>Love this idea?</h2>
-      <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && !ideasShow.love()">&hearts;</button>
-      <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && ideasShow.love()">Un-love this idea</button>
+      <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && !ideasShow.isLove()">&hearts;</button>
+      <button ng-click="ideasShow.toggleLove()" ng-if="main.isAuthenticated() && ideasShow.isLove()">Un-love this idea</button>
     </div>
   </div>
 </div>
@@ -82,8 +83,8 @@
     </div>
     <div class="col-md-6" ng-if="main.isAuthenticated()">
       <h2>Join this team?</h2>
-      <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && !ideasShow.love()">Hell yeah!</button>
-      <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && ideasShow.love()">Un-join this team</button>
+      <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && !ideasShow.isJoin()">Hell yeah!</button>
+      <button ng-click="ideasShow.toggleJoin()" ng-if="main.isAuthenticated() && ideasShow.isJoin()">Un-join this team</button>
     </div>
   </div>
 </div>

@@ -314,6 +314,9 @@ text-decoration:none;
       width:100%;
       max-height: 200px;
     }
+    .tagLable {
+      float: none;
+    }
 }
 
 @media only screen and (max-width:480px) {
@@ -342,6 +345,38 @@ text-decoration:none;
   max-height: 400px;
 }
 
-.tags {
+.tagLable {
   float: left;
+  width: 18%;
+  margin-bottom: 10px;
+}
+
+.searchBar {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+button {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 2px;
+  padding: 5px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
+  transition: all 0.2s ease;
+  border-color: $brand-secondary;
+  background-color: $brand-secondary;
+  &:hover {
+    cursor: pointer;
+    border-color: lighten($brand-secondary, 5%);
+    background-color: lighten($brand-secondary, 5%);
+  }
+  &:focus {
+    outline: none !important;
+    border-color: lighten($brand-secondary, 5%);
+    background-color: lighten($brand-secondary, 5%);
+  }
 }

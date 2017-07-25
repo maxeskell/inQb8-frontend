@@ -9,15 +9,23 @@ IdeasIndexCtrl.$inject = ['Idea', 'filterFilter', '$scope'];
 
 function IdeasIndexCtrl(Idea, filterFilter, $scope) {
   const vm = this;
-  vm.all = Idea.query();
+  vm.all = [];
+  Idea.query()
+  .$promise
+  .then((response) => {
+    vm.all = shuffle(response);
+    filterIdeas();
+  });
 
   function filterIdeas() {
-    vm.filtered = filterFilter(vm.all, vm.q);
+    const params = { title: vm.q };
+    vm.filtered = filterFilter(vm.all, params);
   }
 
   $scope.$watchGroup([
     () => vm.q
   ], filterIdeas);
+
 }
 
 IdeasNewCtrl.$inject = ['Idea', 'User', '$state', 'Tag'];
@@ -37,12 +45,14 @@ function IdeasNewCtrl(Idea, User, $state, Tag) {
   }
 
   vm.create = ideasCreate;
+
 }
 
 IdeasShowCtrl.$inject = ['Idea', 'User', 'Comment', '$stateParams', '$state', '$auth'];
 
 function IdeasShowCtrl(Idea, User, Comment, $stateParams, $state, $auth) {
   const vm = this;
+
   if ($auth.getPayload()) vm.currentUser = User.get({
     id: $auth.getPayload().id
   });
@@ -78,7 +88,7 @@ function IdeasShowCtrl(Idea, User, Comment, $stateParams, $state, $auth) {
   vm.toggleLove = toggleLove;
 
   function isLove() {
-    return $auth.getPayload() && vm.idea.$resolved && vm.idea.ideas_loved.id.includes(vm.currentUser.id);
+    return $auth.getPayload() && vm.idea.$resolved && vm.idea.love_ids.includes(vm.currentUser.id);
   }
 
   vm.isLove = isLove;
@@ -97,7 +107,7 @@ function IdeasShowCtrl(Idea, User, Comment, $stateParams, $state, $auth) {
   vm.toggleJoin = toggleJoin;
 
   function isJoin() {
-    return $auth.getPayload() && vm.idea.$resolved && vm.idea.ideas_joined.id.includes(vm.currentUser.id);
+    return $auth.getPayload() && vm.idea.$resolved && vm.idea.joiner_ids.includes(vm.currentUser.id);
   }
 
   vm.isJoin = isJoin;
@@ -155,4 +165,25 @@ function IdeasEditCtrl(Idea, User, $stateParams, $state) {
   }
 
   vm.update = ideasUpdate;
+}
+
+function shuffle(array) {
+
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+
 }

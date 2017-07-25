@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-6">
     <div class="event">
-      <h2><strong> Username: </strong> {{ usersShow.user.username }}</h2>
+      <h2><strong> Username: {{ usersShow.user.username }} </strong> </h2>
       <img class="userThumbnail" ng-src="{{ usersShow.user.image_src }}" alt="{{ usersShow.user.username }}">
-      <h3><strong> Email: </strong>{{ usersShow.user.email }}</h3>
+      <h3><a href="mailto:{{ usersShow.user.email }}"><strong> Email: </strong>{{ usersShow.user.email }}</a></h3>
       <h3><strong> First name: </strong>{{ usersShow.user.first_name }}</h3>
       <h3><strong> Last name: </strong>{{ usersShow.user.last_name }}</h3>
-      <button ui-sref="usersEdit({id: usersShow.user.id})" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Edit</button>
-      <button ng-click="usersShow.delete(user)" ng-if="main.isAuthenticated() && main.currentUser.id === ideasShow.idea.user.id">Delete</button>
+      <button ui-sref="usersEdit({id: usersShow.user.id})" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Edit</button>
+      <button ng-click="usersShow.delete(user)" ng-if="main.isAuthenticated() && main.currentUser.id === usersShow.user.id">Delete</button>
     </div>
   </div>
 

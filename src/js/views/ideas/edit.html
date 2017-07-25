@@ -26,7 +26,7 @@
       <label for="campaign_duration">Campaign duration</label>
       <input type="number" id="campaign_duration" name="campaign_duration" ng-model="ideasEdit.idea.campaign_duration" required>
 
-      <lable ng-repeat="tag in ideasEdit.tags">
+      <lable ng-repeat="idea in ideasEdit.tags">
         <input type="checkbox" name="tag" checklist-model="ideasEdit.idea.tag_ids" checklist-value="tag.id"> {{ tag.name }}
       </lable>
 
