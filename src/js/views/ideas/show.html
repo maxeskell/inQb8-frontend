@@ -35,7 +35,7 @@
     <p class="donate"> Total needed: {{ ideasShow.idea.target }}</p>
 
     <hr>
-
+    <p class="people{{ideasShow.idea.people_left}}"><strong>{{ideasShow.idea.people_left }}</strong> people still needed</p>
     <p>Loves &hearts; : <strong> {{ ideasShow.idea.love_ids.length }} </strong></p>
     <p class="days{{ideasShow.idea.days_left}}"><strong>{{ideasShow.idea.days_left }}</strong> days left</p>
     <p>End date: <strong> {{ideasShow.idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
