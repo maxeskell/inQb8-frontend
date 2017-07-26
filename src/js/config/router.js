@@ -8,6 +8,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: 'js/views/ideas/index.html',
+      controller: 'IdeasIndexCtrl as ideasIndex'
+    })
     .state('ideasIndex', {
       url: '/ideas',
       templateUrl: 'js/views/ideas/index.html',
@@ -54,5 +59,5 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'UsersEditCtrl as usersEdit'
     });
 
-  $urlRouterProvider.otherwise('/ideas');
+  $urlRouterProvider.otherwise('/');
 }
