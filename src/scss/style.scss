@@ -297,6 +297,9 @@ text-decoration:none;
       width:100%;
       max-height: 300px;
     }
+    .landing {
+    margin: 30px 15px !important;
+    }
 }
 
 @media only screen and (max-width:640px) {
@@ -326,11 +329,18 @@ text-decoration:none;
     .tagLable {
     font-size: 10px;
     }
+    .landing {
+    margin: 75px 25px !important;
+    font-size: 10px;
+    }
 }
 
 @media only screen and (max-width:1200px) {
     .tagLable {
     font-size: 12px;
+    }
+    .landing {
+    margin: 200px 75px !important;
     }
 }
 
@@ -348,6 +358,9 @@ text-decoration:none;
     .ideaMain {
       width:100%;
       max-height: 100px;
+    }
+    .landing {
+    margin: 75px 25px !important;
     }
 }
 
@@ -424,6 +437,24 @@ button {
   width: 100%;
 }
 
-.home {
-  max-width:100%; max-height:100%; margin:auto;
+.landing {
+    margin: 300px 300px;
+    background-color: white;
+    border: solid 2px $brand-secondary;
+    padding: 10px;
+    min-width: 300px;
+    line-height: 30px;
+    animation: 2s fadeIn;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }

@@ -1,11 +1,17 @@
 <div class="hero">
 
-<div class="row home">
 
 
-<h1>Welcome to incubate</h1>
-<h2>If you have an idea to improve our company or help our clients, then post it here to attract people to help you</h2>
-<h2>Once you have posted your idea, other people can show support by 'loving' your idea or joining your team</h2>
-</div>
+  <div class=" row">
+    <div class="col landing">
+      <strong> <h2>Welcome to incubate</h2></strong>
+      <h2>If you have an idea to improve our company or help our clients, then post it here to attract people to help you.</h2>
+      <h2>Once you have posted your idea, other people can show support by 'loving' your idea or joining your team.</h2>
+      <button ng-if="main.isAuthenticated()" type="button" ui-sref="ideasNew">Post my ideas</button>
+      <button type="button" ui-sref="ideasIndex">Checkout current live ideas</button>
+    </div>
+  </div>
+
+
 
 </div>
