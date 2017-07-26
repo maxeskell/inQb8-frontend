@@ -1,64 +1,70 @@
-### Using this Angular Gulp Setup
+# Wildside: created by Olly Middleton, Jack May and Max Eskell
 
-To get setup with the starter-code, you first need to run:
+<h1> Wildside walks </h1>
+A REST app, built to allow people to find, create and share their favourite wildlife walks.
 
-```sh
-$ bower install && gulp install
-```
+<h2> Getting started </h2>
+Download or fork the code and save it to your preferred directory.  
 
-## How is gulp setup?
+<h3> Installing </h3>
+Run Yarn to install all the developer and deployment dependencies </br>
+```yarn```
 
-Rather than trying to manage one giant `gulpfile.js` that is file responsible for creating multiple tasks, each task has been broken out into its own file and placed in a directory `tasks`. Any files in that directory get automatically required in the gulpfile using the `require-dir` npm package.
+Install Yarn if you do not have it </br>
+```brew install yarn``` <a href="https://yarnpkg.com/lang/en/docs/install/"> find help here</a>
 
-To add a new task, simply add a new task file that directory.
+You can then use Gulp to automate the workflow </br>
+```gulp```
 
-/tasks/default.js specifies the default set of tasks to run
-when you run `gulp`.
+Install gulp if you do not have it (preferably globally)
+```npm install --global gulp-cli``` <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md"> find help here </a>
 
-Configuration options are stored in the `package.json` file.
+If you want to use AWS to store images, or make use of the Facebook or Github Oauth, you will need to update the environmental variables and set these up on their respective website.
 
-When deploying, ensure that a `postinstall` script has been added to
-your package.json, e.g.
+Helpful links:
+<ul>
+<li><a href="https://aws.amazon.com/console/"> AWS console </a></li>
+<li><a href="https://github.com/">Github</a></li>
+<li><a href="https://developers.facebook.com/">Facebook for developers </a></li>
+</ul>
 
-```json
-"postinstall": "bower install && gulp deploy"
-```
+<h2> Running tests </h2>
+There is a comprehensive test suit included within the app.
 
-This setup expects that there is a bower.json file with at least ONE package
-installed. This will created a bower_components directory after
-the postinstall script has run.
+There are tests on authentication and on CRUD of resources.
 
-When deploying, this setup expects that the `NODE_ENV` is set to `production`.
-Also that the `NPM_CONFIG_PRODUCTION` is set to `false`. Then you can also set the `API_URL` to be the correct URL for your deployed app. This will automatically replace `http://localhost:3000` to be the correct url.
+Test coverage is ~60%: </br>
+Statements   : 65.13% ( 198/304 ) </br>
+Branches     : 49.44% ( 44/89 ) </br>
+Functions    : 64.86% ( 24/37 ) </br>
+Lines        : 69.2% ( 191/276 ) </br>
 
-You can do this by running:
+<h2> Deployment </h2>
+The app is built to de deployed on Heroku.  
+<ul>
+<ol>Environmental variables need to be uploaded to HEROKU (including API ID and CLIENT SECRETS) </ol>
+<ol>Ensure that Facebook and Github settings (online) direct the user to the correct url.</ol>
+</ul>
 
-```bash
-$ heroku config:set NODE_ENV=production
-$ heroku config:set NPM_CONFIG_PRODUCTION=false
 
-# An example url
-$ heroku config:set API_URL=https://project-on-heroku.herokuapp.com/
-```
+<h2> Built with </h2>
+This is a MEAN app (MongoDB, Express, Angular and Node).
 
-### Bower overrides
+<h2> Versioning </h2>
+Current version is 1.0.  We plan to release v1.1 in the near future with the following enhancements:
+<ul>
+<li> An improved trails page that zooms to show the user on the map, their nearest five routes, and proximity distance of those walks from their current location </li>
+<li> New sliders on to the trails page that filter walks by: distance to current location, trail length & difficulty </li>
+<li> Accessibility information provided on all routes. Users will be able to record whether it is good for walking, cycling, wheelchairs and prams </li>
+<li> Enhanced trail creation and edit pages that allow users to add tags to their route based on the wildlife that can expect to see on their route. Users can then also filter trails based on wildlife that want to see </li>
+<li> Improved comments section that allows people to upload images to go with their comment (e.g. wildlife they saw) </li>
+<li>  New profile page that will enable people to edit their user profile </li>
+<li> Inclusion of the Unsplash API so if people have difficulty uploading or don't want to upload a picture, they can submit a photo from the API instead </li>
+</ul>
 
-Sometimes, you might want to `override` the `main` file(s) for a specific Bower component. You can do this directly inside the `bower.json` file like this:
+<h2> Licence </h2>
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-```json
-"overrides": {
-  "bootstrap": {
-    "main": [
-      "dist/css/bootstrap.css",
-      "dist/js/bootstrap.js",
-      "dist/fonts/*"
-    ]
-  },
-  "font-awesome": {
-    "main": [
-      "css/font-awesome.css",
-      "fonts/*"
-    ]
-  }
-},
-```
+<h2> Acknowledgements </h2>
+This project would not have been possible without:
+Mike Hayden,  Emily Isacke, Mark Davis & Sam Domesjo
