@@ -37,7 +37,7 @@
     <hr>
 
     <p>Loves &hearts; : <strong> {{ ideasShow.idea.love_ids.length }} </strong></p>
-    <p><strong>{{ideasShow.idea.days_left }}</strong> days left</p>
+    <p class="days{{ideasShow.idea.days_left}}"><strong>{{ideasShow.idea.days_left }}</strong> days left</p>
     <p>End date: <strong> {{ideasShow.idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
     <p><a ui-sref="usersShow({id: ideasShow.idea.user.id})">Created by: <strong>{{ ideasShow.idea.user.username }}</strong></a></p>
     <p>Who we need: <strong>{{ ideasShow.idea.who_we_need }}</strong></p>

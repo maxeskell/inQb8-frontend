@@ -458,3 +458,15 @@ button {
     opacity: 1;
   }
 }
+
+.days5, .days4, .days3, .days2 {
+  color: orange;
+}
+.days1, .days0 {
+  color: red;
+}
+
+.message {
+  maring-top: 0;
+  padding-left: 5px;
+}

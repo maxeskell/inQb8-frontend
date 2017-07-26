@@ -28,7 +28,7 @@
       <a class="donate" ng-href="ideasShow({id: idea.id})"> Total needed: <strong>{{ idea.target }}</strong></a>
 
       <hr>
-      <p><strong>{{idea.days_left }}</strong> days left</p>
+      <p class="days{{idea.days_left}}"><strong>{{idea.days_left }}</strong> days left</p>
       <p><a ui-sref="usersShow({id: idea.user.id})">Created by: <strong>{{ idea.user.username }}</strong></a></p>
       <p>Ends on: <strong>{{idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
 

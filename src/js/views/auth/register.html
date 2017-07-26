@@ -1,14 +1,22 @@
 <div class="row">
   <div class="col-md-6">
-    <form ng-submit="register.submit()" novalidate>
+    <form name="register.registerForm" ng-submit="register.submit()" novalidate>
       <div>
         <label>Username</label>
-        <input type="text" ng-model="register.user.username" required maxlength="30">
+        <input type="text" ng-model="register.user.username" required maxlength="30" pattern="^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$" name="username" id="username">
+        <div class="ng-message-error" ng-messages="register.registerForm.username.$error" ng-show="(register.registerForm.$submitted || register.registerForm.username.$touched)">
+          <p class="message" ng-message="required">A username is required</p>
+          <p class="message" ng-message="pattern">Please enter a valid username, e.g., Elon Musk</p>
+        </div>
       </div>
 
       <div>
         <label>Email</label>
-        <input type="text" ng-model="register.user.email" required maxlength="40">
+        <input type="text" ng-model="register.user.email" required maxlength="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" id="email">
+        <div class="ng-message-error" ng-messages="register.registerForm.email.$error" ng-show="(register.registerForm.$submitted || register.registerForm.email.$touched)">
+          <p class="message" ng-message="required">An email is required</p>
+          <p class="message" ng-message="pattern">Please enter a valid email address, e.g., elon_musk@innovate.com</p>
+        </div>
       </div>
 
       <div>
@@ -18,12 +26,20 @@
 
       <div>
         <label>Password</label>
-        <input type="password" ng-model="register.user.password" required maxlength="30">
+        <input type="password" ng-model="register.user.password" required maxlength="30" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" name="password" id="password">
+        <div class="ng-message-error" ng-messages="register.registerForm.password.$error" ng-show="(register.registerForm.$submitted || register.registerForm.password.$touched)">
+          <p class="message" ng-message="required">A password is required</p>
+          <p class="message" ng-message="pattern">Password must contain at least one number and one letter, and be at least 8 or more characters</p>
+        </div>
       </div>
 
       <div>
         <label>Password Confirmation</label>
-        <input type="password" ng-model="register.user.password_confirmation" required maxlength="30">
+        <input type="password" ng-model="register.user.password_confirmation" required maxlength="30" name="password_confirmation" id="password_confirmation">
+        <div class="ng-message-error" ng-messages="register.registerForm.password_confirmation.$error" ng-show="(register.registerForm.$submitted || register.registerForm.password_confirmation.$touched)" ng-pattern="register.regex">
+          <p class="message" ng-message="required">You must confirm your password</p>
+          <p class="message" ng-message="pattern">Passwords must match</p>
+        </div>
       </div>
 
       <button>Register</button>
