@@ -14,7 +14,14 @@ function RegisterCtrl($auth, $state) {
   }
 
   vm.submit = submit;
-  
+
+  function authenticate(provider) {
+    $auth.authenticate(provider)
+    .then(() => $state.go('ideasIndex'));
+  }
+
+  vm.authenticate = authenticate;
+
 }
 
 LoginCtrl.$inject = ['$auth', '$state'];

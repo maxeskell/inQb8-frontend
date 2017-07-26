@@ -13,17 +13,20 @@
 
       <button>Login</button>
 
-      <hr>
-
-      <button type="button" style="background-color:#3b5998; border: none;" ng-click="login.authenticate('facebook')"><span class="icon">
-        <i class="fa fa-facebook"></i>
-      </span>Login with Facebook</button>
-
-      <hr>
-      <button type="button" style="background-color:black; border: none;" ng-click="login.authenticate('github')"><span class="icon">
-        <i class="fa fa-github"></i>
-      </span>Login with Github</button>
-
     </form>
+
+    <hr>
+
+    <button id="facebook" type="button" ng-click="login.authenticate('facebook')"><span class="icon">
+      <i class="fa fa-facebook"></i>
+    </span>Login with Facebook</button>
+
+    <hr>
+
+    <button id="github" type="button" ng-click="login.authenticate('github')"><span class="icon">
+      <i class="fa fa-github"></i>
+    </span>Login with Github</button>
+
+
   </div>
 </div>
