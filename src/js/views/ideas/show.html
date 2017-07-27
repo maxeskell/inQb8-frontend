@@ -41,7 +41,8 @@
     <p>End date: <strong> {{ideasShow.idea.end_date | date:"dd MMM yyyy 'at' h:mma" }}</strong></p>
     <p><a ui-sref="usersShow({id: ideasShow.idea.user.id})">Created by: <strong>{{ ideasShow.idea.user.username }}</strong></a></p>
     <p>Who we need: <strong>{{ ideasShow.idea.who_we_need }}</strong></p>
-    <p>What's in it for you: <strong>{{ ideasShow.idea.benefits_for_you }}</strong></p>
+    <p>What's in it for you: <strong>{{ ideasShow.idea.benifits_for_you }}</strong></p>
+    {{ ideasShow.idea }}
     <p>Description: <strong>{{ ideasShow.idea.description }}</strong></p>
     <p>Tags: </p>
     <ul>
